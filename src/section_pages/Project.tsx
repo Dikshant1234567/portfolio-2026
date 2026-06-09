@@ -3,8 +3,7 @@ import GlowingBorderCard from '../ui/GlowingBorderCard'
 import openaiImage from "../assets/openai.png"
 import DigitalPlace from "../assets/Digital-place.png"
 import SectionHeader from '../common/SectionHeader';
-import ElectricBorder from '../ui/ElectricBorder';
-
+import whatapp from "../assets/whatapp.webp"
 const Data = [
   {
     img: openaiImage,
@@ -33,7 +32,7 @@ const Data = [
     },
   },
   {
-    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1022px-WhatsApp.svg.png",
+    img: whatapp,
     title: "WhatsApp-clone",
     mixCss: "darken",
     description:

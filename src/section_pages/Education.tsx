@@ -1,7 +1,6 @@
 import SectionHeader from '../common/SectionHeader'
 import ChildContainer from '../ui/ChildContainer'
 import ElectricBorder from '../ui/ElectricBorder';
-import GlowingBorderCard from '../ui/GlowingBorderCard'
 const education = [
   {
     degree: "Master of Computer Applications (MCA)",

@@ -1,6 +1,5 @@
-import React, { useEffect, useRef, useCallback, useMemo, useState } from 'react';
+import React, { useEffect, useRef, useCallback, useMemo } from 'react';
 import { cn } from '../utils';
-import { div } from 'three/src/nodes/math/OperatorNode.js';
 
 const DEFAULT_INNER_GRADIENT = 'linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)';
 
@@ -475,8 +474,8 @@ const CardComponent: React.FC<ProfileCardProps> = ({
         <section
           className={cn("grid relative overflow-hidden ")}
           style={{
-            height :height,
-            width: width,            
+            height: height,
+            width: width,
             aspectRatio: '0.718',
             borderRadius: cardRadius,
             backgroundBlendMode: 'color-dodge, normal, normal, normal',
@@ -532,10 +531,12 @@ const CardComponent: React.FC<ProfileCardProps> = ({
               }}
             >
               <img
+                height={400}
+                width={400}
                 className="w-full absolute left-1/2 bottom-[-1px] will-change-transform transition-transform duration-[120ms] ease-out"
                 src={avatarUrl}
                 alt={`${name || 'User'} avatar`}
-                loading="lazy"
+                fetchPriority="high"
                 style={{
                   transformOrigin: '50% 100%',
                   transform:
@@ -547,6 +548,7 @@ const CardComponent: React.FC<ProfileCardProps> = ({
                   const t = e.target as HTMLImageElement;
                   t.style.display = 'none';
                 }}
+
               />
               {showUserInfo && (
                 <div

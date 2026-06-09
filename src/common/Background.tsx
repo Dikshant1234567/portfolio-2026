@@ -18,9 +18,9 @@ function Background() {
             takeoverDuration={0.25}
             autoResumeDelay={3000}
             autoRampDuration={0.6}
-            color0="#5227FF"
-            color1="#FF9FFC"
-            color2="#B497CF"
+            // color0="#5227FF"
+            // color1="#FF9FFC"
+            // color2="#B497CF"
         />
     )
 }

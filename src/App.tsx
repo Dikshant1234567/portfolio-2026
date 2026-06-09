@@ -1,16 +1,13 @@
 import "./App.css";
 import MainLayout from "./layout/MainLayout";
-import LazySection from "./components/LazySection";
-import { lazy, Suspense, } from "react";
-import LoadingSpinner from "./ui/LoadingSpinner";
 import HomeSection from "./section_pages/Home";
 import { SectionWrapper } from "./common/SectionWrapper";
 
-const ExperienceSection = lazy(() => import("./section_pages/Exprience"));
-const ProjectsSection = lazy(() => import("./section_pages/Project"));
-const EducationSection = lazy(() => import("./section_pages/Education"));
-const SkillsSection = lazy(() => import("./section_pages/Skills"));
-const Footer = lazy(() => import("./components/Footer"));
+import ExperienceSection from "./section_pages/Exprience";
+import ProjectsSection from "./section_pages/Project";
+import EducationSection from "./section_pages/Education";
+import SkillsSection from "./section_pages/Skills";
+import Footer from "./components/Footer";
 
 export default function App() {
 
@@ -21,43 +18,23 @@ export default function App() {
       </SectionWrapper>
 
       <SectionWrapper id="experience">
-        <LazySection>
-          <Suspense fallback={<LoadingSpinner />}>
-            <ExperienceSection />
-          </Suspense>
-        </LazySection>
+        <ExperienceSection />
       </SectionWrapper>
 
       <SectionWrapper id="skills">
-        <LazySection>
-          <Suspense fallback={<LoadingSpinner />}>
-            <SkillsSection />
-          </Suspense>
-        </LazySection>
+        <SkillsSection />
       </SectionWrapper>
 
       <SectionWrapper id="project">
-        <LazySection>
-          <Suspense fallback={<LoadingSpinner />}>
-            <ProjectsSection />
-          </Suspense>
-        </LazySection>
+        <ProjectsSection />
       </SectionWrapper>
 
       <SectionWrapper id="education">
-        <LazySection>
-          <Suspense fallback={<LoadingSpinner />}>
-            <EducationSection />
-          </Suspense>
-        </LazySection>
+        <EducationSection />
       </SectionWrapper>
 
       <SectionWrapper id="footer" >
-        <LazySection minHeight={200}>
-          <Suspense fallback={<LoadingSpinner />}>
-            <Footer />
-          </Suspense>
-        </LazySection>
+        <Footer />
       </SectionWrapper>
     </MainLayout>
   );

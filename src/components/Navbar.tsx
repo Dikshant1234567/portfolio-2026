@@ -23,8 +23,6 @@ function Navbar() {
 
   const activeSectionId = useMemo(() => SECTION_INDEX[activeSection] ?? null, [activeSection]);
 
-  console.log("activeSection is " + activeSection)
-  console.log("activeSection id " + activeSectionId)
   return (
     <div
       style={{ position: "sticky", top: 0, zIndex: 1000, }}

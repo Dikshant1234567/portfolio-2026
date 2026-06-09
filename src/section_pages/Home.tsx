@@ -1,7 +1,6 @@
 import ChildContainer from '../ui/ChildContainer'
 import GlowingCard from '../ui/GlowingCard'
-import img from "../assets/profile.jpg"
-import { CodeXml  } from 'lucide-react';
+// import img from "../assets/profile.jpg"
 export default function Home() {
   return (
     <ChildContainer id='home' classname='flex items-start space-x-16 pt-18'>
@@ -12,7 +11,7 @@ export default function Home() {
           handle="dikshantnadiyal06@gmail.com"
           status="Online"
           contactText="Contact Me"
-          avatarUrl={img}
+          // avatarUrl={img}
           showUserInfo={true}
           enableTilt={true}
           enableMobileTilt={true}

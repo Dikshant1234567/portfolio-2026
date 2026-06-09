@@ -8,12 +8,12 @@ interface LazySectionProps {
 
 export default function LazySection({
   children,
-  minHeight = 500,
+  minHeight = 1000,
 }: LazySectionProps) {
   const { ref, isVisible } = useLazyLoad();
 
   return (
-    <div ref={ref}>
+    <div ref={ref} >
       {isVisible ? (
         children
       ) : (
