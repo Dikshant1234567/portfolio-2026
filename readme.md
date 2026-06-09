@@ -56,3 +56,6 @@ navbar having a unwanted black Bg
 skills--->Logo Loop
 
 home -->Text Pressure , suffle , Fuzzy Text ., Ascii Text ,Glitch Text
+
+
+have to create a context which store my current intersection section then update the navbar though it 

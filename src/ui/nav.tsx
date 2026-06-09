@@ -78,7 +78,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
         setTimeout(() => {
           try {
             element.removeChild(particle);
-          } catch {}
+          } catch { }
         }, t);
       }, 30);
     }
@@ -115,6 +115,27 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
       makeParticles(filterRef.current);
     }
   };
+  useEffect(() => {
+    setActiveIndex(initialActiveIndex);
+  }, [initialActiveIndex]);
+  useEffect(() => {
+  const activeLi =
+    navRef.current?.querySelectorAll("li")[activeIndex] as HTMLElement;
+
+  if (!activeLi) return;
+
+  updateEffectPosition(activeLi);
+
+  if (filterRef.current) {
+    makeParticles(filterRef.current);
+  }
+
+  textRef.current?.classList.remove("active");
+  void textRef.current?.offsetWidth;
+  textRef.current?.classList.add("active");
+}, [activeIndex]);
+
+
   const handleKeyDown = (e: React.KeyboardEvent<HTMLAnchorElement>, index: number) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
@@ -301,9 +322,8 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
             {items.map((item, index) => (
               <li
                 key={index}
-                className={`rounded-full relative cursor-pointer transition-[background-color_color_box-shadow] duration-300 ease shadow-[0_0_0.5px_1.5px_transparent] text-white ${
-                  activeIndex === index ? 'active' : ''
-                }`}
+                className={`rounded-full relative cursor-pointer transition-[background-color_color_box-shadow] duration-300 ease shadow-[0_0_0.5px_1.5px_transparent] text-white ${activeIndex === index ? 'active' : ''
+                  }`}
               >
                 <a
                   href={item.href}
