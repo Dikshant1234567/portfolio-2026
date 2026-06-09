@@ -24,7 +24,7 @@ export default function App() {
         <SkillsSection />
       </SectionWrapper>
 
-      <SectionWrapper id="project">
+      <SectionWrapper id="projects">
         <ProjectsSection />
       </SectionWrapper>
 

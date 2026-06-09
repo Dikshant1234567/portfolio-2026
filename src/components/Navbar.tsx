@@ -14,7 +14,7 @@ const SECTION_INDEX: Record<string, number> = {
   home: 0,
   experience: 1,
   skills: 2,
-  project: 3,
+  projects: 3,
   education: 4,
 };
 
@@ -27,7 +27,7 @@ function Navbar() {
   );
 
   return (
-    <div style={{ position: "sticky", top: 0, zIndex: 1000 }} className="pt-4">
+    <div style={{ position: "sticky", top: 0, zIndex: 1000 }} className="pt-4 backdrop-blur-sm">
       <GooeyNav
         items={items}
         particleCount={15}
