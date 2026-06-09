@@ -1,6 +1,6 @@
-import SectionHeader from '../common/SectionHeader'
-import ChildContainer from '../ui/ChildContainer'
-import ElectricBorder from '../ui/ElectricBorder';
+import SectionHeader from "../common/SectionHeader";
+import ChildContainer from "../ui/ChildContainer";
+import ElectricBorder from "../ui/ElectricBorder";
 const education = [
   {
     degree: "Master of Computer Applications (MCA)",
@@ -25,8 +25,8 @@ const education = [
 ];
 export default function Education() {
   return (
-    <ChildContainer id='education'>
-      <SectionHeader title='Education' />
+    <ChildContainer id="education">
+      <SectionHeader title="Education" />
       <div className="relative max-w-5xl mx-auto">
         {/* Center Line */}
         <div className="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 bg-cyan-500/30" />
@@ -35,28 +35,18 @@ export default function Education() {
           const isLeft = index % 2 === 0;
 
           return (
-            <div
-              key={item.degree}
-              className="relative mb-12 flex items-center"
-            >
+            <div key={item.degree} className="relative mb-12 flex items-center">
               {/* Left Side */}
               <div className={`w-1/2 ${isLeft ? "pr-8" : ""}`}>
                 {isLeft && (
                   <ElectricBorder>
                     <div className="p-5">
-
-
                       <h3 className="text-xl font-bold text-white">
                         {item.degree}
                       </h3>
 
-                      <p className="text-zinc-400">
-                        {item.institution}
-                      </p>
-                      <p className="text-cyan-400 text-sm">
-                        {item.period}
-                      </p>
-
+                      <p className="text-zinc-400">{item.institution}</p>
+                      <p className="text-cyan-400 text-sm">{item.period}</p>
                     </div>
                   </ElectricBorder>
                 )}
@@ -74,12 +64,8 @@ export default function Education() {
                         {item.degree}
                       </h3>
 
-                      <p className="text-zinc-400">
-                        {item.institution}
-                      </p>
-                      <p className="text-cyan-400 text-sm">
-                        {item.period}
-                      </p>
+                      <p className="text-zinc-400">{item.institution}</p>
+                      <p className="text-cyan-400 text-sm">{item.period}</p>
                     </div>
                   </ElectricBorder>
                 )}
@@ -89,6 +75,5 @@ export default function Education() {
         })}
       </div>
     </ChildContainer>
-  )
+  );
 }
-

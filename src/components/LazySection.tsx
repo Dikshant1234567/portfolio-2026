@@ -13,12 +13,8 @@ export default function LazySection({
   const { ref, isVisible } = useLazyLoad();
 
   return (
-    <div ref={ref} >
-      {isVisible ? (
-        children
-      ) : (
-        <div style={{ minHeight }} aria-hidden="true" />
-      )}
+    <div ref={ref}>
+      {isVisible ? children : <div style={{ minHeight }} aria-hidden="true" />}
     </div>
   );
 }

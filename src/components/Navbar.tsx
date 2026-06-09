@@ -21,13 +21,13 @@ const SECTION_INDEX: Record<string, number> = {
 function Navbar() {
   const { activeSection } = useActiveSection();
 
-  const activeSectionId = useMemo(() => SECTION_INDEX[activeSection] ?? null, [activeSection]);
+  const activeSectionId = useMemo(
+    () => SECTION_INDEX[activeSection] ?? null,
+    [activeSection],
+  );
 
   return (
-    <div
-      style={{ position: "sticky", top: 0, zIndex: 1000, }}
-      className="pt-4"
-    >
+    <div style={{ position: "sticky", top: 0, zIndex: 1000 }} className="pt-4">
       <GooeyNav
         items={items}
         particleCount={15}

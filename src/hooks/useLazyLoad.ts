@@ -19,7 +19,7 @@ export function useLazyLoad() {
       {
         threshold: 0,
         rootMargin: "200px",
-      }
+      },
     );
 
     observer.observe(element);

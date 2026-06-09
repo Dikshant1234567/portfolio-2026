@@ -1,27 +1,18 @@
-import {
-  FaGithub,
-  FaLinkedin,
-  FaEnvelope,
-} from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 const Footer = () => {
   return (
     <footer className="mt-32 border-t border-white/10">
       <div className="mx-auto max-w-7xl px-6 py-12">
-
         {/* Top Section */}
         <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
-
           {/* Brand */}
           <div>
-            <h3 className="text-2xl font-bold text-white">
-              Dikshant Naudiyal
-            </h3>
+            <h3 className="text-2xl font-bold text-white">Dikshant Naudiyal</h3>
 
             <p className="mt-2 max-w-md text-sm text-zinc-400">
-              Web Developer passionate about building
-              scalable web applications and crafting exceptional
-              user experiences.
+              Web Developer passionate about building scalable web applications
+              and crafting exceptional user experiences.
             </p>
           </div>
 

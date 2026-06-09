@@ -1,8 +1,7 @@
-
-import SectionHeader from '../common/SectionHeader'
-import ChildContainer from '../ui/ChildContainer'
-import ElectricBorder from '../ui/ElectricBorder';
-import GlowingCard from '../ui/GlowingCard';
+import SectionHeader from "../common/SectionHeader";
+import ChildContainer from "../ui/ChildContainer";
+import ElectricBorder from "../ui/ElectricBorder";
+import GlowingCard from "../ui/GlowingCard";
 
 const ExprienceDetails = () => {
   const experiences = [
@@ -29,7 +28,7 @@ const ExprienceDetails = () => {
         "Git",
         "Node Js",
         "Express Js",
-        "Postgres"
+        "Postgres",
       ],
     },
   ];
@@ -39,23 +38,17 @@ const ExprienceDetails = () => {
       {experiences.map((exp) => (
         <div
           key={exp.company}
-          className='p-8'
-        // className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md p-8 shadow-xl"
+          className="p-8"
+          // className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md p-8 shadow-xl"
         >
           {/* Header */}
           <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
             <div>
-              <h3 className="text-2xl font-bold text-white">
-                {exp.title}
-              </h3>
+              <h3 className="text-2xl font-bold text-white">{exp.title}</h3>
 
-              <p className="text-lg text-zinc-300 mt-1">
-                {exp.company}
-              </p>
+              <p className="text-lg text-zinc-300 mt-1">{exp.company}</p>
 
-              <p className="text-sm text-zinc-500 mt-1">
-                📍 {exp.location}
-              </p>
+              <p className="text-sm text-zinc-500 mt-1">📍 {exp.location}</p>
             </div>
 
             <div className="rounded-full border border-white/10 px-4 py-2 text-sm text-zinc-300 bg-white/5">
@@ -77,16 +70,11 @@ const ExprienceDetails = () => {
 
           {/* Responsibilities */}
           <div className="mt-8">
-            <h4 className="font-semibold text-white mb-4">
-              Responsibilities
-            </h4>
+            <h4 className="font-semibold text-white mb-4">Responsibilities</h4>
 
             <ul className="space-y-3">
               {exp.description.map((item) => (
-                <li
-                  key={item}
-                  className="flex gap-3 text-zinc-300"
-                >
+                <li key={item} className="flex gap-3 text-zinc-300">
                   <span className="mt-1 text-green-400">✓</span>
                   <span>{item}</span>
                 </li>
@@ -96,9 +84,7 @@ const ExprienceDetails = () => {
 
           {/* Achievements */}
           <div className="mt-8">
-            <h4 className="font-semibold text-white mb-4">
-              Key Achievements
-            </h4>
+            <h4 className="font-semibold text-white mb-4">Key Achievements</h4>
 
             <div className="space-y-3">
               {exp.achievements.map((achievement) => (
@@ -117,20 +103,19 @@ const ExprienceDetails = () => {
   );
 };
 function Exprience() {
-
   return (
-    <ChildContainer id='exprience' classname=''>
-      <SectionHeader title='Exprience' />
+    <ChildContainer id="exprience" classname="">
+      <SectionHeader title="Exprience" />
       <ElectricBorder>
         <GlowingCard
           width="100%"
-          height='120vh'
-          className='items-center p-2'
+          height="120vh"
+          className="items-center p-2"
           isCardContentChildren={<ExprienceDetails />}
         />
       </ElectricBorder>
     </ChildContainer>
-  )
+  );
 }
 
-export default Exprience
+export default Exprience;

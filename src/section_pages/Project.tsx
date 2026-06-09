@@ -1,9 +1,9 @@
-import ChildContainer from '../ui/ChildContainer'
-import GlowingBorderCard from '../ui/GlowingBorderCard'
-import openaiImage from "../assets/openai.png"
-import DigitalPlace from "../assets/Digital-place.png"
-import SectionHeader from '../common/SectionHeader';
-import whatapp from "../assets/whatapp.webp"
+import ChildContainer from "../ui/ChildContainer";
+import GlowingBorderCard from "../ui/GlowingBorderCard";
+import openaiImage from "../assets/openai.png";
+import DigitalPlace from "../assets/Digital-place.png";
+import SectionHeader from "../common/SectionHeader";
+import whatapp from "../assets/whatapp.webp";
 const Data = [
   {
     img: openaiImage,
@@ -83,7 +83,7 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
   return (
-    <div className='p-1'>
+    <div className="p-1">
       {/* Image */}
       <div className="relative h-52 overflow-hidden shadow-[inset_0_0_20px_rgba(0,0,0,0.6)]">
         <img
@@ -97,9 +97,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
 
       {/* Content */}
       <div className="p-6">
-        <h3 className="text-xl font-bold text-white">
-          {project.title}
-        </h3>
+        <h3 className="text-xl font-bold text-white">{project.title}</h3>
 
         <p className="mt-3 text-sm leading-relaxed text-zinc-400">
           {project.description}
@@ -132,13 +130,12 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
 };
 function Project() {
   return (
-    <ChildContainer id='project'>
-      <SectionHeader title='Projects' />
+    <ChildContainer id="project">
+      <SectionHeader title="Projects" />
 
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid auto-rows-[1fr] gap-6 md:grid-cols-2 xl:grid-cols-3">
           {Data.map((project, index) => (
-
             <GlowingBorderCard
               key={project.title}
               className={`
@@ -152,7 +149,7 @@ function Project() {
         </div>
       </div>
     </ChildContainer>
-  )
+  );
 }
 
-export default Project
+export default Project;

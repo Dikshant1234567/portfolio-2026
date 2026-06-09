@@ -1,13 +1,8 @@
-
 interface Buttonprops {
-    value: string,
+  value: string;
 }
 const Button = ({ value }: Buttonprops) => {
-    return (
-        <button className='btn-primary'>
-            {value}
-        </button>
-    )
-}
+  return <button className="btn-primary">{value}</button>;
+};
 
-export default Button
+export default Button;

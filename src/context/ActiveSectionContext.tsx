@@ -1,26 +1,25 @@
 import { createContext, useContext, useState } from "react";
 
-
 interface ActiveSectionContextType {
-    activeSection: string;
-    setActiveSection: React.Dispatch<React.SetStateAction<string>>;
+  activeSection: string;
+  setActiveSection: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const ActiveSectionContext = createContext<ActiveSectionContextType | undefined>(undefined);
+const ActiveSectionContext = createContext<
+  ActiveSectionContextType | undefined
+>(undefined);
 
 export const ActiveSectionProvider = ({
-    children,
+  children,
 }: {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }) => {
-    const [activeSection, setActiveSection] = useState("home");
-    return (
-        <ActiveSectionContext.Provider
-            value={{ activeSection, setActiveSection }}
-        >
-            {children}
-        </ActiveSectionContext.Provider>
-    );
+  const [activeSection, setActiveSection] = useState("home");
+  return (
+    <ActiveSectionContext.Provider value={{ activeSection, setActiveSection }}>
+      {children}
+    </ActiveSectionContext.Provider>
+  );
 };
 
 export const useActiveSection = () => {
@@ -28,7 +27,7 @@ export const useActiveSection = () => {
 
   if (!context) {
     throw new Error(
-      "useActiveSection must be used within ActiveSectionProvider"
+      "useActiveSection must be used within ActiveSectionProvider",
     );
   }
 

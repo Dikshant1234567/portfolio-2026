@@ -10,7 +10,6 @@ import SkillsSection from "./section_pages/Skills";
 import Footer from "./components/Footer";
 
 export default function App() {
-
   return (
     <MainLayout>
       <SectionWrapper id="home">
@@ -33,7 +32,7 @@ export default function App() {
         <EducationSection />
       </SectionWrapper>
 
-      <SectionWrapper id="footer" >
+      <SectionWrapper id="footer">
         <Footer />
       </SectionWrapper>
     </MainLayout>
