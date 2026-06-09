@@ -13,7 +13,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
   return (
     <div className="relative min-h-screen">
       <div className="fixed inset-0 -z-10">
-        <Suspense fallback={<LoadingSpinner />}>
+        <Suspense fallback={null}>
           <Background />
         </Suspense>
       </div>
