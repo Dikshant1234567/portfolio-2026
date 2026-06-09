@@ -13,3 +13,7 @@
            hover:bg-gray-300 transition-colors duration-200;
   }
 }
+
+*{
+  font-family: system-ui;
+}

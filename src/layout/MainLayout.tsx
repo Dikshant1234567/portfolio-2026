@@ -1,5 +1,4 @@
 // layout/MainLayout.tsx - Scalable
-import { Outlet } from 'react-router-dom';
 import Background from '../common/Background';
 import Container from '../common/Container';
 import Navbar from '../components/Navbar';

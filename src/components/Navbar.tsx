@@ -1,15 +1,16 @@
 
-import GooeyNav from '../common/nav';
+import GooeyNav from '../ui/nav';
 
 function Navbar() {
   const items = [
     { label: "Home", href: "#home" },
     { label: "Exprience", href: "#exprience" },
+    { label: "Skills", href: "#skills" },
     { label: "Project", href: "#project" },
     { label: "Education", href: "#education" },
   ];
-
-  return <div style={{ position: 'sticky', top:"0" }} className=' pt-4'>
+// zIndex:1000
+  return <div style={{ position: 'sticky', top:"0",  }} className=' pt-4'> 
     <GooeyNav
       items={items}
       particleCount={15}

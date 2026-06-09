@@ -9,6 +9,7 @@ import HomeSection from "./section_pages/Home";
 const ExperienceSection = lazy(() => import("./section_pages/Exprience"));
 const ProjectsSection = lazy(() => import("./section_pages/Project"));
 const EducationSection = lazy(() => import("./section_pages/Education"));
+const SkillsSection = lazy(() => import("./section_pages/Skills"));
 const Footer = lazy(() => import("./components/Footer"));
 
 export default function App() {
@@ -22,6 +23,11 @@ export default function App() {
         </Suspense>
       </LazySection>
 
+      <LazySection>
+        <Suspense fallback={<LoadingSpinner />}>
+          <SkillsSection />
+        </Suspense>
+      </LazySection>
       <LazySection>
         <Suspense fallback={<LoadingSpinner />}>
           <ProjectsSection />

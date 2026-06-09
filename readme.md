@@ -34,7 +34,7 @@ mobile nav
 ### Model Viewer
 home hero
 
-### Lanyard
+### 
 can be used to show intership details
 
 ### Profile Card
@@ -50,3 +50,9 @@ check out
 
 ##### Issues
 navbar having a unwanted black Bg
+
+
+
+skills--->Logo Loop
+
+home -->Text Pressure , suffle , Fuzzy Text ., Ascii Text ,Glitch Text

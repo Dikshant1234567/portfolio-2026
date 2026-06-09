@@ -1,4 +1,6 @@
 import React, { useEffect, useRef, useCallback, useMemo, useState } from 'react';
+import { cn } from '../utils';
+import { div } from 'three/src/nodes/math/OperatorNode.js';
 
 const DEFAULT_INNER_GRADIENT = 'linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)';
 
@@ -49,6 +51,11 @@ interface ProfileCardProps {
   contactText?: string;
   showUserInfo?: boolean;
   onContactClick?: () => void;
+  height?: string;
+  width?: string;
+  maxHeight?: string;
+  maxWidth?: string;
+  isCardContentChildren?: React.ReactNode;
 }
 
 interface TiltEngine {
@@ -60,7 +67,7 @@ interface TiltEngine {
   cancel: () => void;
 }
 
-const ProfileCardComponent: React.FC<ProfileCardProps> = ({
+const CardComponent: React.FC<ProfileCardProps> = ({
   avatarUrl = '<Placeholder for avatar URL>',
   iconUrl = '<Placeholder for icon URL>',
   grainUrl = '<Placeholder for grain URL>',
@@ -73,13 +80,14 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   enableMobileTilt = false,
   mobileTiltSensitivity = 5,
   miniAvatarUrl,
-  name = 'Javi A. Torres',
-  title = 'Software Engineer',
-  handle = 'javicodes',
-  status = 'Online',
-  contactText = 'Contact',
-  showUserInfo = true,
-  onContactClick
+  name,
+  title,
+  handle,
+  contactText,
+  showUserInfo,
+  onContactClick,
+  height, width, maxHeight, maxWidth,
+  isCardContentChildren
 }) => {
   const wrapRef = useRef<HTMLDivElement>(null);
   const shellRef = useRef<HTMLDivElement>(null);
@@ -373,6 +381,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   );
 
   const handleContactClick = useCallback((): void => {
+    alert("click")
     onContactClick?.();
   }, [onContactClick]);
 
@@ -444,8 +453,13 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   return (
     <div
       ref={wrapRef}
-      className={`relative touch-none mt-0 ${className}`.trim()}
-      style={{ perspective: '500px', transform: 'translate3d(0, 0, 0.1px)', ...cardStyle } as React.CSSProperties}
+      className={`relative touch-none mt-0 w-3xs ${className}`.trim()}
+      style={{
+        width: width,
+        maxWidth: maxWidth,
+        height: height,
+        maxHeight: maxHeight, perspective: '500px', transform: 'translate3d(0, 0, 0.1px)', ...cardStyle
+      } as React.CSSProperties}
     >
       {behindGlowEnabled && (
         <div
@@ -457,12 +471,12 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
           }}
         />
       )}
-      <div ref={shellRef} className="relative z-[1] group">
+      <div ref={shellRef} className="relative z-[1] group w-full h-fit">
         <section
-          className="grid relative overflow-hidden"
+          className={cn("grid relative overflow-hidden ")}
           style={{
-            height: '80svh',
-            maxHeight: '380px',
+            height :height,
+            width: width,            
             aspectRatio: '0.718',
             borderRadius: cardRadius,
             backgroundBlendMode: 'color-dodge, normal, normal, normal',
@@ -471,7 +485,8 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
             transition: 'transform 1s ease',
             transform: 'translateZ(0) rotateX(0deg) rotateY(0deg)',
             background: 'rgba(0, 0, 0, 0.9)',
-            backfaceVisibility: 'hidden'
+            backfaceVisibility: 'hidden',
+
           }}
           onMouseEnter={e => {
             e.currentTarget.style.transition = 'none';
@@ -487,6 +502,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
             e.currentTarget.style.transform = 'translateZ(0) rotateX(0deg) rotateY(0deg)';
           }}
         >
+
           <div
             className="absolute inset-0"
             style={{
@@ -566,22 +582,25 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
                         }}
                       />
                     </div>
-                    <div className="flex flex-col items-start gap-1.5">
-                      <div className="text-sm font-medium text-white/90 leading-none">@{handle}</div>
-                      <div className="text-sm text-white/70 leading-none">{status}</div>
+                    <div className="flex flex-col items-start gap-1.5 space-y-1">
+                      <div className="text-[10px] text-white/90 leading-none">{handle}</div>
+                      <button
+                        className="border border-white/10 rounded-lg px-2 py-1 text-[10px] font-semibold text-white/90 cursor-pointer backdrop-blur-[10px] transition-all duration-200 ease-out hover:border-white/40 hover:-translate-y-px block"
+                        onClick={handleContactClick}
+                        style={{ pointerEvents: 'auto', display: 'block', gridArea: 'auto', borderRadius: '8px' }}
+                        type="button"
+                        aria-label={`Contact ${name || 'user'}`}
+                      >
+                        {contactText}
+                      </button>{/* <div className="text-sm text-white/70 leading-none">{status}</div> */}
                     </div>
                   </div>
-                  <button
-                    className="border border-white/10 rounded-lg px-4 py-3 text-xs font-semibold text-white/90 cursor-pointer backdrop-blur-[10px] transition-all duration-200 ease-out hover:border-white/40 hover:-translate-y-px"
-                    onClick={handleContactClick}
-                    style={{ pointerEvents: 'auto', display: 'block', gridArea: 'auto', borderRadius: '8px' }}
-                    type="button"
-                    aria-label={`Contact ${name || 'user'}`}
-                  >
-                    {contactText}
-                  </button>
+
                 </div>
               )}
+              {
+                isCardContentChildren && isCardContentChildren
+              }
             </div>
 
             {/* Details content */}
@@ -643,5 +662,5 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   );
 };
 
-const ProfileCard = React.memo(ProfileCardComponent);
-export default ProfileCard;
+const GlowingCard = React.memo(CardComponent);
+export default GlowingCard;
