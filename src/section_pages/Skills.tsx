@@ -1,11 +1,7 @@
 import SectionHeader from "../common/SectionHeader";
 import ChildContainer from "../ui/ChildContainer";
 import SkillsCarsouel from "../ui/SkillsCarsouel";
-import {
-  SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiExpress,
-  SiNodedotjs,
-  SiMongodb, SiGithub,
-} from 'react-icons/si';
+import {SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiExpress,SiNodedotjs,SiMongodb, SiGithub,} from 'react-icons/si';
 
 const techLogos = [
   { node: <SiReact />, title: "React", href: "https://react.dev" },
