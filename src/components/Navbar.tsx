@@ -27,7 +27,10 @@ function Navbar() {
   );
 
   return (
-    <div style={{ position: "sticky", top: 0, zIndex: 1000 }} className="pt-4 backdrop-blur-sm">
+    <div
+      style={{ position: "sticky", top: 0, zIndex: 1000 }}
+      className="pt-4 backdrop-blur-sm"
+    >
       <GooeyNav
         items={items}
         particleCount={15}

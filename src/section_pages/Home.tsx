@@ -1,6 +1,6 @@
 import ChildContainer from "../ui/ChildContainer";
 import GlowingCard from "../ui/GlowingCard";
-import img from "../assets/profile.webp"
+import profileSrc from "../assets/imresizer-profile.webp";
 export default function Home() {
   return (
     <ChildContainer id="home" classname="flex items-start space-x-16 pt-18">
@@ -12,7 +12,7 @@ export default function Home() {
           handle="dikshantnadiyal06@gmail.com"
           status="Online"
           contactText="Contact Me"
-          avatarUrl={img}
+          avatarUrl={profileSrc}
           showUserInfo={true}
           enableTilt={true}
           enableMobileTilt={true}

@@ -1,9 +1,11 @@
 import ChildContainer from "../ui/ChildContainer";
 import GlowingBorderCard from "../ui/GlowingBorderCard";
-import openaiImage from "../assets/openai.webp";
-import DigitalPlace from "../assets/Digital-place.webp";
+import openaiImage from "../assets/imresizer-openai.webp";
+import DigitalPlace from "../assets/imresizer-Digital-place.webp";
 import SectionHeader from "../common/SectionHeader";
-import whatapp from "../assets/whatapp.webp";
+import whatapp from "../assets/whatapp-old.webp";
+import flipkart from "../assets/imresizer-imresizer-fp.webp";
+import Sharing from "../assets/imresizer-imresizer-sharing.webp";
 const Data = [
   {
     img: openaiImage,
@@ -45,7 +47,7 @@ const Data = [
     },
   },
   {
-    img: "https://i.pinimg.com/originals/aa/70/8d/aa708d1f97a04f6f5a208213f89e1e67.png",
+    img: flipkart,
     title: "Flipkart-clone",
     mixCss: "darken",
     description:
@@ -58,7 +60,7 @@ const Data = [
     },
   },
   {
-    img: "https://w7.pngwing.com/pngs/886/137/png-transparent-file-sharing-file-hosting-service-box-secure-miscellaneous-text-logo.png",
+    img: Sharing,
     title: "Online File-sharing Application",
     mixCss: "hard-light",
     description:
