@@ -1,5 +1,3 @@
-// layout/MainLayout.tsx - Scalable
-// import Background from '../common/Background';
 import { lazy, Suspense } from "react";
 import Container from "../common/Container";
 import Navbar from "../components/Navbar";

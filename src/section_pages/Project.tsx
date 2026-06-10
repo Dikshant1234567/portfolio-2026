@@ -1,7 +1,7 @@
 import ChildContainer from "../ui/ChildContainer";
 import GlowingBorderCard from "../ui/GlowingBorderCard";
-import openaiImage from "../assets/openai.png";
-import DigitalPlace from "../assets/Digital-place.png";
+import openaiImage from "../assets/openai.webp";
+import DigitalPlace from "../assets/Digital-place.webp";
 import SectionHeader from "../common/SectionHeader";
 import whatapp from "../assets/whatapp.webp";
 const Data = [
@@ -89,6 +89,8 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         <img
           src={project.img}
           alt={project.title}
+          width={400}
+          height={400}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110 rounded-t-3xl"
         />
 
