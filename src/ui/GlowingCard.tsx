@@ -570,8 +570,8 @@ const CardComponent: React.FC<ProfileCardProps> = ({
               }}
             >
               <img
-                height={400}
-                width={400}
+                height={327}
+                width={256}
                 className="w-full absolute left-1/2 bottom-[-1px] will-change-transform transition-transform duration-[120ms] ease-out"
                 src={avatarUrl}
                 alt={`${name || "User"} avatar`}

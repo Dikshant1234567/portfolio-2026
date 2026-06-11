@@ -63,7 +63,7 @@ export default function Bg({
   iterationsPoisson = 4,
   dt = 0.014,
   BFECC = true,
-  resolution = 0.5,
+  resolution = 0.25,
   isBounce = false,
   colors = defaultColors,
   style = {},
@@ -132,10 +132,10 @@ export default function Bg({
       clock: THREE.Clock | null = null;
       init(container: HTMLElement) {
         this.container = container;
-        this.pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+        this.pixelRatio = Math.min(window.devicePixelRatio || 1, 1.5);
         this.resize();
         this.renderer = new THREE.WebGLRenderer({
-          antialias: true,
+          antialias: false,
           alpha: true,
         });
         // Always transparent
@@ -900,8 +900,8 @@ export default function Bg({
       pressure!: Pressure;
       constructor(options?: Partial<SimOptions>) {
         this.options = {
-          iterations_poisson: 32,
-          iterations_viscous: 32,
+          iterations_poisson: 2,
+          iterations_viscous: 2,
           mouse_force: 20,
           resolution: 0.25,
           cursor_size: 100,
