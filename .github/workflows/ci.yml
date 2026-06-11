@@ -26,9 +26,25 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
+          cache: npm
+          cache-dependency-path: package-lock.json
 
       - name: Install Dependencies
-        run: npm ci
+        env:
+          NPM_CONFIG_FETCH_RETRIES: 5
+          NPM_CONFIG_FETCH_RETRY_MINTIMEOUT: 20000
+          NPM_CONFIG_FETCH_RETRY_MAXTIMEOUT: 120000
+        run: |
+          for attempt in 1 2 3; do
+            npm ci --no-audit --no-fund && break
+
+            if [ "$attempt" -eq 3 ]; then
+              exit 1
+            fi
+
+            echo "npm ci failed on attempt $attempt; retrying in 15 seconds..."
+            sleep 15
+          done
 
       - name: Lint
         run: npm run lint

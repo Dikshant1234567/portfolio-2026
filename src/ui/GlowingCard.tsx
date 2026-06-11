@@ -413,7 +413,6 @@ const CardComponent: React.FC<ProfileCardProps> = ({
   );
 
   const handleContactClick = useCallback((): void => {
-    alert("click");
     onContactClick?.();
   }, [onContactClick]);
 
