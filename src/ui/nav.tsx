@@ -16,6 +16,11 @@ export interface GooeyNavProps {
   initialActiveIndex?: number;
 }
 
+const noise = (n = 1) => n / 2 - Math.random() * n;
+
+const randomItem = <T,>(items: T[]) =>
+  items[Math.floor(Math.random() * items.length)];
+
 const GooeyNav: React.FC<GooeyNavProps> = ({
   items,
   animationTime = 600,
@@ -32,7 +37,6 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
   const textRef = useRef<HTMLSpanElement>(null);
   const [activeIndex, setActiveIndex] = useState<number>(initialActiveIndex);
 
-  const noise = (n = 1) => n / 2 - Math.random() * n;
   const getXY = (
     distance: number,
     pointIndex: number,
@@ -48,13 +52,13 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
     d: [number, number],
     r: number,
   ) => {
-    let rotate = noise(r / 10);
+    const rotate = noise(r / 10);
     return {
       start: getXY(d[0], particleCount - i, particleCount),
       end: getXY(d[1] + noise(7), particleCount - i, particleCount),
       time: t,
       scale: 1 + noise(0.2),
-      color: colors[Math.floor(Math.random() * colors.length)],
+      color: randomItem(colors),
       rotate: rotate > 0 ? (rotate + r / 20) * 10 : (rotate - r / 20) * 10,
     };
   };
@@ -88,7 +92,9 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
         setTimeout(() => {
           try {
             element.removeChild(particle);
-          } catch {}
+          } catch {
+            // The particle may already be removed during a rapid navigation.
+          }
         }, t);
       }, 30);
     }
@@ -129,7 +135,11 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
     }
   };
   useEffect(() => {
-    setActiveIndex(initialActiveIndex);
+    const syncActiveIndex = window.setTimeout(
+      () => setActiveIndex(initialActiveIndex),
+      0,
+    );
+    return () => window.clearTimeout(syncActiveIndex);
   }, [initialActiveIndex]);
   useEffect(() => {
     const activeLi = navRef.current?.querySelectorAll("li")[
@@ -147,6 +157,8 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
     textRef.current?.classList.remove("active");
     void textRef.current?.offsetWidth;
     textRef.current?.classList.add("active");
+    // Particle generation intentionally uses fresh random values per activation.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeIndex]);
 
   const handleKeyDown = (

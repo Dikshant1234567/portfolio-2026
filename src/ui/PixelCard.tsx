@@ -171,6 +171,8 @@ interface VariantConfig {
   noFocus: boolean;
 }
 
+type PixelAnimation = "appear" | "disappear";
+
 export default function PixelCard({
   variant = "default",
   gap,
@@ -186,7 +188,7 @@ export default function PixelCard({
   const animationRef = useRef<ReturnType<typeof requestAnimationFrame> | null>(
     null,
   );
-  const timePreviousRef = useRef(performance.now());
+  const timePreviousRef = useRef(0);
   const reducedMotion = useRef(
     window.matchMedia("(prefers-reduced-motion: reduce)").matches,
   ).current;
@@ -238,9 +240,10 @@ export default function PixelCard({
     pixelsRef.current = pxs;
   };
 
-  const doAnimate = (fnName: keyof Pixel) => {
-    animationRef.current = requestAnimationFrame(() => doAnimate(fnName));
-    const timeNow = performance.now();
+  const doAnimate = (fnName: PixelAnimation, timeNow: number) => {
+    animationRef.current = requestAnimationFrame((timestamp) =>
+      doAnimate(fnName, timestamp),
+    );
     const timePassed = timeNow - timePreviousRef.current;
     const timeInterval = 1000 / 60;
 
@@ -255,7 +258,6 @@ export default function PixelCard({
     let allIdle = true;
     for (let i = 0; i < pixelsRef.current.length; i++) {
       const pixel = pixelsRef.current[i];
-      // @ts-ignore
       pixel[fnName]();
       if (!pixel.isIdle) {
         allIdle = false;
@@ -266,11 +268,14 @@ export default function PixelCard({
     }
   };
 
-  const handleAnimation = (name: keyof Pixel) => {
+  const handleAnimation = (name: PixelAnimation) => {
     if (animationRef.current !== null) {
       cancelAnimationFrame(animationRef.current);
     }
-    animationRef.current = requestAnimationFrame(() => doAnimate(name));
+    timePreviousRef.current = 0;
+    animationRef.current = requestAnimationFrame((timestamp) =>
+      doAnimate(name, timestamp),
+    );
   };
 
   const onMouseEnter = () => handleAnimation("appear");

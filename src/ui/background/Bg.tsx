@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 export interface LiquidEtherProps {
   mouseForce?: number;
   cursorSize?: number;
@@ -605,7 +607,7 @@ export default function Bg({
         this.props = props || {};
         this.uniforms = this.props.material?.uniforms;
       }
-      init(..._args: any[]) {
+      init() {
         this.scene = new THREE.Scene();
         this.camera = new THREE.Camera();
         if (this.uniforms) {
@@ -615,7 +617,7 @@ export default function Bg({
           this.scene.add(this.plane);
         }
       }
-      update(..._args: any[]) {
+      update() {
         if (!Common.renderer || !this.scene || !this.camera) return;
         Common.renderer.setRenderTarget(this.props.output || null);
         Common.renderer.render(this.scene, this.camera);
@@ -684,9 +686,9 @@ export default function Bg({
       mouse!: THREE.Mesh;
       constructor(simProps: any) {
         super({ output: simProps.dst });
-        this.init(simProps);
+        this.initForce(simProps);
       }
-      init(simProps: any) {
+      initForce(simProps: any) {
         super.init();
         const mouseG = new THREE.PlaneGeometry(1, 1);
         const mouseM = new THREE.RawShaderMaterial({

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
-import { useActiveSection } from "../context/ActiveSectionContext";
+import { useActiveSection } from "../hooks/useActiveSection";
 
 interface SectionWrapperProps {
   id: string;

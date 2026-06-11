@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { useActiveSection } from "../context/ActiveSectionContext";
+import { useActiveSection } from "../hooks/useActiveSection";
 import GooeyNav from "../ui/nav";
 
 const items = [
